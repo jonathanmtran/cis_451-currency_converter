@@ -18,8 +18,20 @@ public class Service : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string HelloWorld() {
-        return "Hello World";
-    }
-    
+    public double CurrencyConvert(String strCurrencyType, Int32 sngCurrencyIn)
+	{
+		double sngCurrencyOut = -1;
+		
+		switch(strCurrencyType) {
+			case "ca":
+				sngCurrencyOut = sngCurrencyIn * 1.1;
+				break;
+
+			case "jp":
+				sngCurrencyOut = sngCurrencyIn * 110;
+				break;
+		}
+
+		return sngCurrencyOut;
+	}
 }
